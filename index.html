@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Photos</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
+
+<body>
+	<div class="flex">
+  		<div id="cubeWrap">
+			<div id="cube">
+				<div class="out_front">
+					<img src="./imgs/cube1.jpg" class="pic" />
+				</div>
+				<div class="out_back">
+					<img src="./imgs/cube2.jpg" class="pic" />
+				</div>
+				<div class="out_left">
+					<img src="./imgs/cube3.jpg" class="pic" />
+				</div>
+				<div class="out_right">
+					<img src="./imgs/cube4.jpg" class="pic" />
+				</div>
+				<div class="out_top">
+					<img src="./imgs/cube5.jpg" class="pic" />
+				</div>
+				<div class="out_bottom">
+					<img src="./imgs/cube6.jpg" class="pic" />
+				</div>
+				<span class="in_front">
+					<img src="./imgs/cube7.jpg" class="in_pic" />
+				</span>
+				<span class="in_back">
+					<img src="./imgs/cube8.jpg" class="in_pic" />
+				</span>
+				<span class="in_left">
+					<img src="./imgs/cube9.jpg" class="in_pic" />
+				</span>
+				<span class="in_right">
+					<img src="./imgs/cube10.jpg" class="in_pic" />
+				</span>
+				<span class="in_top">
+					<img src="./imgs/cube11.jpg" class="in_pic" />
+				</span>
+				<span class="in_bottom">
+					<img src="./imgs/cube12.jpg" class="in_pic" />
+				</span>
+			</div>
+		</div>
+		
+		<div id="photosWrap">
+    		<div id="photos">
+    		  <img src="./imgs/mid.jpg" alt="" class="centerPic">
+    		  <img src="./imgs/mid2.jpg" alt="" class="centerPic centerPic2">
+    		  <img src="./imgs/1.jpg" class="pic" />
+    		  <img src="./imgs/2.jpg" class="pic" />
+    		  <img src="./imgs/3.jpg" class="pic" />
+    		  <img src="./imgs/4.jpg" class="pic" />
+    		  <img src="./imgs/5.jpg" class="pic" />
+    		  <img src="./imgs/6.jpg" class="pic" />
+    		  <img src="./imgs/7.jpg" class="pic" />
+    		  <img src="./imgs/8.jpg" class="pic" />
+    		  <img src="./imgs/9.jpg" class="pic" />
+    		  <img src="./imgs/10.jpg" class="pic" />
+    		  <img src="./imgs/11.jpg" class="pic" />
+    		  <img src="./imgs/12.jpg" class="pic" />
+    		  <img src="./imgs/13.jpg" class="pic" />
+    		  <img src="./imgs/14.jpg" class="pic" />
+    		  <img src="./imgs/15.jpg" class="pic" />
+    		  <img src="./imgs/16.jpg" class="pic" />
+    		  <img src="./imgs/17.jpg" class="pic" />
+			
+    		  <div class="bling"></div>
+    		</div>
+		</div>
+	</div>
+
+  <script>
+	var photosDom = document.querySelector('#photos');
+	var images = photosDom.querySelectorAll('.pic');
+	var len = images.length;        
+	var deg = Math.floor(360 / len);                    
+
+	for(var i = 0; i < len;i++){
+	    images[i].style = `transform: rotateX(-0deg) rotateY(${deg*i}deg) translateZ(300px)`;
+	}
+
+	let x = 1;
+  let showCenterPic2 = false;
+	setInterval(function(){
+      const deg = (x++) * 3;
+      console.log(deg)
+	    photosDom.style.transform = "rotateX(-20deg) rotateY("+ deg +"deg)";
+      
+      if(deg%180 === 90){
+        document.querySelector('.centerPic2').style.opacity = showCenterPic2 ? 1 : 0;
+        showCenterPic2 = !showCenterPic2;
+      }
+	}, 100);
+  </script>
+</body>
+
+</html>
